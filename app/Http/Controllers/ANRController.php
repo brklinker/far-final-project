@@ -10,6 +10,7 @@ class ANRController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $topTenTracks = Track::all()->sortBy('id');
         $topFiveTracks = Track::select('tracks.*')
             ->orderBy('score', 'desc')
@@ -20,6 +21,7 @@ class ANRController extends Controller
             'topTenTracks' => $topTenTracks,
             'topFiveTracks' => $topFiveTracks,
             'number' => 0,
+            'user' => $user,
         ]);
     }
 }

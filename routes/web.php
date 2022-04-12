@@ -17,18 +17,24 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+    Route::post('/home', [HomeController::class, 'submit'])->name('home.submit');
+
+    Route::get('/anr', [ANRController::class, 'index'])->name('anr.index');
+
+    Route::get('/submitted', [HomeController::class, 'submitted'])->name('home.submitted');
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/admin', [AdminController::class, 'update'])->name('admin.update');
+});
+
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('registration.index');
 Route::post('/register', [RegistrationController::class, 'register'])->name('registration.create');
-
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-Route::post('/home', [HomeController::class, 'submit'])->name('home.submit');
-
-Route::get('/anr', [ANRController::class, 'index'])->name('anr.index');
-
-Route::get('/submitted', [HomeController::class, 'submitted'])->name('home.submitted');
-
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::post('/admin', [AdminController::class, 'update'])->name('admin.update');

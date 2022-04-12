@@ -13,16 +13,18 @@ class HomeController extends Controller
     public function index()
     {
         $tracks = Track::all()->sortBy('id');
-
+        $user = Auth::user();
 
         return view('home.index', [
             'tracks' => $tracks,
+            'user' => $user,
         ]);
     }
 
     public function submitted()
     {
         $tracks = Track::all();
+        $user = Auth::user();
 
         $topTracks = Track::select('tracks.*')
             ->join('user_tracks', 'tracks.id', '=', 'user_tracks.track_id')
@@ -33,6 +35,7 @@ class HomeController extends Controller
         return view('home.submitted', [
             'tracks' => $tracks,
             'topTracks' => $topTracks,
+            'user' => $user,
         ]);
     }
 

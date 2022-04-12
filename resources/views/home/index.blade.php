@@ -70,7 +70,7 @@
 
 <body>
     <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="{{ route('home.index') }}" id="nav-bar-button">FA&R</a>
+        <a class="navbar-brand" href="#" id="nav-bar-button">FA&R</a>
         <a class="navbar-brand" href="#">
             <img id="spotify-emblem" src="{{  asset('images/Spotify_Logo_RGB_Black.png')  }}" alt="Spotify Emblem">
         </a>
@@ -79,7 +79,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md" id="left">
-                <h1>Welcome back, Bastian</h1>
+                <h1>Welcome back, {{$user->name}}</h1>
                 <h5>Here is this week's top 10 tracks.</h5>
                 <table class=" table table-striped">
                     <thead>

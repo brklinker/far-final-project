@@ -65,21 +65,24 @@
         #right-header {
             margin-bottom: 15px;
         }
+
+        #footer {
+            background-color: black;
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="{{ route('home.index') }}" id="nav-bar-button">FA&R</a>
-        <a class="navbar-brand" href="#">
-            <img id="spotify-emblem" src="{{  asset('images/Spotify_Logo_RGB_Black.png')  }}" alt="Spotify Emblem">
-        </a>
+        <a class="navbar-brand" href="{{route('auth.logout')}}">Logout</a>
+
     </nav>
 
     <div class="container">
         <div class="row">
             <div class="col-md" id="left">
-                <h1>Welcome back, Bastian</h1>
+                <h1>Welcome back, {{ $user->name }}</h1>
                 <h5>Here is this week's Top 5 curated by the fans.</h5>
                 <table class=" table table-striped">
                     <thead>
@@ -164,6 +167,11 @@
         </div>
 
     </div>
+    <nav class="navbar" id="footer">
+        <a class="navbar-brand" href="#">
+            <img id="spotify-emblem" src="{{  asset('images/Spotify_Logo_RGB_Green.png')  }}" alt="Spotify Emblem">
+        </a>
+    </nav>
 
 </body>
 
