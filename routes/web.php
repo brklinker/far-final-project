@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
+
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\HomeController;
@@ -38,3 +40,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('registration.index');
 Route::post('/register', [RegistrationController::class, 'register'])->name('registration.create');
+
+if (env('APP_ENV') !== 'local') {
+    URL::forceScheme('https');
+}
