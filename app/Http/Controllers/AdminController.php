@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Playlist;
 use App\Models\Track;
+use App\Models\User_track;
 use Spotify;
 
 
@@ -19,7 +20,10 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
+        //logic to create history in db
+
         Track::truncate();
+        User_track::truncate();
 
         $playlists = Playlist::all();
         //dd($playlists);

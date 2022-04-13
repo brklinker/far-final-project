@@ -28,6 +28,13 @@ class RegistrationController extends Controller
         $user->save();
 
         Auth::login($user);
-        return redirect()->route('home.index');
+
+        if ($user->role_id == 1) {
+            return redirect()->route('home.index');
+        } else if ($user->role_id == 2) {
+            return redirect()->route('admin.index');
+        } else {
+            return redirect()->route('anr.index');
+        }
     }
 }

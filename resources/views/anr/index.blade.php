@@ -75,7 +75,10 @@
 <body>
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="{{ route('home.index') }}" id="nav-bar-button">FA&R</a>
-        <a class="navbar-brand" href="{{route('auth.logout')}}">Logout</a>
+        <form action="{{route('auth.logout')}}" method="POST">
+            @csrf
+            <input type="submit" value="Logout" class="btn btn-primary" id="form-submit">
+        </form>
 
     </nav>
 

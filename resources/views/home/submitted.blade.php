@@ -70,10 +70,11 @@
 
 <body>
     <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="{{ route('home.index') }}" id="nav-bar-button">FA&R</a>
-        <a class="navbar-brand" href="#">
-            <img id="spotify-emblem" src="{{  asset('images/Spotify_Logo_RGB_Black.png')  }}" alt="Spotify Emblem">
-        </a>
+        <a class="navbar-brand" href="#" id="nav-bar-button">FA&R</a>
+        <form action="{{route('auth.logout')}}" method="POST">
+            @csrf
+            <input type="submit" value="Logout" class="btn btn-primary" id="form-submit">
+        </form>
     </nav>
 
     <div class="container">
@@ -143,9 +144,12 @@
                 </table>
             </div>
         </div>
-
-
     </div>
+    <nav class="navbar" id="footer">
+        <a class="navbar-brand" href="#">
+            <img id="spotify-emblem" src="{{  asset('images/Spotify_Logo_RGB_Green.png')  }}" alt="Spotify Emblem">
+        </a>
+    </nav>
 </body>
 
 </html>
