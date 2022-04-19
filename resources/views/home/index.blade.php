@@ -48,7 +48,7 @@
     @csrf
     <div id="right-header">
         <h1>Your Top 3</h1>
-        <h5>Choose your top 3 below.</h5>
+        <h5>Choose your Top 3 below.</h5>
     </div>
 
     <div class="row song-row">

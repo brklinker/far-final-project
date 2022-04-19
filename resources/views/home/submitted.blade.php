@@ -4,7 +4,7 @@
 
 @section("left-col")
 <h1>Welcome back, {{$user->name}}</h1>
-<h5>Here is this week's top 10 tracks.</h5>
+<h5>Here is this week's Top 10 tracks.</h5>
 <table class=" table table-striped">
     <thead>
         <tr>
@@ -45,7 +45,7 @@
 @section("right-col")
 <div id="right-header">
     <h1>Here's Your Top 3</h1>
-    <h5>Your ranked top three.</h5>
+    <h5>Your ranked Top three.</h5>
 </div>
 <table class=" table table-striped">
     <thead>
