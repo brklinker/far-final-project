@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function submitted()
     {
-        $tracks = Track::all();
+        $tracks = Track::all()->sortBy('id');
         $user = Auth::user();
 
         $topTracks = Track::select('tracks.*')
