@@ -56,8 +56,6 @@ class AdminController extends Controller
         $newWeek->start_day = now();
         $newWeek->save();
 
-        dd();
-
         Track::truncate();
         User_track::truncate();
 

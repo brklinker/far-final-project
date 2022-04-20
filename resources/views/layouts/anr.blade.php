@@ -79,10 +79,7 @@
         <nav class="navbar navbar-dark bg-primary">
             <a class="navbar-brand" href="{{route('anr.index')}}" id="nav-bar-button">FA&R</a>
 
-            <form class="navbar-brand" action="{{route('history.index')}}" method="GET">
-                @csrf
-                <input type="submit" value="History" class="btn btn-primary" id="form-submit">
-            </form>
+            <a class="navbar-brand" href="{{route('history.index')}}">History</a>
 
             <form action="{{route('auth.logout')}}" method="POST">
                 @csrf
