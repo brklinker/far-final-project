@@ -4,7 +4,7 @@
 
 @section("left-col")
 <h1>Welcome back, {{$user->name}}</h1>
-<h5>Here is this week's Top 10 tracks.</h5>
+<h5>Here are this week's Top 10 tracks.</h5>
 <table class=" table table-striped">
     <thead>
         <tr>

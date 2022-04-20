@@ -17,6 +17,7 @@
             margin-bottom: 10px;
         }
 
+
         #account-label {
             text-align: center;
         }

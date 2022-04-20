@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Playlist;
 use App\Models\Track;
 use App\Models\User_track;
+use App\Models\History_track;
+use App\Models\Week;
 use Spotify;
+use DB;
 
 
 class AdminController extends Controller
@@ -21,6 +24,39 @@ class AdminController extends Controller
     public function update(Request $request)
     {
         //logic to create history in db
+
+        $oldWeek = Week::find(DB::table('weeks')->max('id'));
+        $oldWeek->stop_day = date("Y-m-d");
+        $oldWeek->save();
+
+        $tracks = Track::select('tracks.*')
+            ->orderBy('score', 'desc')
+            ->get();
+
+        $counter = 1;
+        foreach ($tracks as $track) {
+            $historyTrack = new History_track();
+            $historyTrack->name = $track->name;
+            $historyTrack->preview_url = $track->preview_url;
+            $historyTrack->spotify_id = $track->spotify_id;
+            $historyTrack->artist =  $track->artist;
+            $historyTrack->album = $track->album;
+            $historyTrack->album_id = $track->album_id;
+            $historyTrack->album_cover = $track->album_cover;
+            $historyTrack->top_ten_rank = $track->id;
+            $historyTrack->week_id = $oldWeek->id;
+            if ($counter <= 5) {
+                $historyTrack->top_five_rank = $counter;
+                $counter++;
+            }
+            $historyTrack->save();
+        }
+
+        $newWeek = new Week();
+        $newWeek->start_day = now();
+        $newWeek->save();
+
+        dd();
 
         Track::truncate();
         User_track::truncate();

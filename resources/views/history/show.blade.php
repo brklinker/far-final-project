@@ -3,7 +3,7 @@
 @section('title', 'A&R')
 
 @section("left-col")
-<h1>Welcome, {{ $user->name }}</h1>
+<h1>Welcome, {{$user->name}}</h1>
 <h5>Here are this week's Top 5 curated by the fans.</h5>
 <table class=" table table-striped">
     <thead>
@@ -59,7 +59,7 @@
     @foreach($topTenTracks as $track)
     <tr>
         <td>
-            {{$track->id}}
+            {{$track->top_ten_rank}}
         </td>
         <td>
             <img src="{{$track->album_cover}}" alt="{{$track->album}}" class="cover-img">
