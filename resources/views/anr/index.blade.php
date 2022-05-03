@@ -2,6 +2,12 @@
 
 @section('title', 'A&R')
 
+@section('nav-bar')
+<a class="navbar-brand" href="{{route('anr.index')}}" id="nav-bar-button">FA&R</a>
+
+<a class="navbar-brand" href="{{route('history.index')}}">History</a>
+@endsection
+
 @section("left-col")
 <h1>Welcome, {{ $user->name }}</h1>
 <h5>Here are this week's Top 5 curated by the fans.</h5>
