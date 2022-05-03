@@ -41,6 +41,13 @@ class HomeController extends Controller
 
     public function submit(Request $request)
     {
+        if (
+            $request->input('top-song') == $request->input('second-song') ||
+            $request->input('second-song') == $request->input('third-song') || $request->input('top-song') == $request->input('third-song')
+        ) {
+            return redirect()->route('home.index')->with('selection', 'Song selections must be different.');
+        }
+
         $user = Auth::user();
 
         $firstTrack = new User_track();
@@ -77,6 +84,7 @@ class HomeController extends Controller
 
 
         return redirect()
-            ->route('home.submitted');
+            ->route('home.submitted')
+            ->with('success', "Successfully added top three songs");
     }
 }

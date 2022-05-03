@@ -48,10 +48,14 @@
 
         <div class="container">
             <div class="row">
+                @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <div class="col-md" id="left">
                     @yield("content")
                 </div>
-
                 <div class="col-md" id="right">
                     <h1 id="right-title">FA&R</h1>
                 </div>

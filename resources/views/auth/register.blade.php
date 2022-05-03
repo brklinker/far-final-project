@@ -27,16 +27,26 @@
 
     <div class="mb-3">
         <label class="form-label" for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control">
+        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control" value="{{ old('name') }}">
+        @error("name")
+        <small class="text-danger"> {{$message}} </small>
+        @enderror
+    </div>
     </div>
     <div class="mb-3">
         <label class="form-label" for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control">
+        <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control" value="{{ old('email') }}">
     </div>
+    @error("email")
+    <small class="text-danger"> {{$message}} </small>
+    @enderror
     <div class="mb-3">
         <label class="form-label" for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Enter your password" class="form-control">
     </div>
+    @error("password")
+    <small class="text-danger"> {{$message}} </small>
+    @enderror
     <input type="submit" id="form-submit" value="Register" class="btn btn-primary">
 </form>
 <p id="account-label">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>

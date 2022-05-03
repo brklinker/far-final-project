@@ -23,7 +23,6 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
-        //logic to create history in db
 
         $oldWeek = Week::find(DB::table('weeks')->max('id'));
         $oldWeek->stop_day = date("Y-m-d");

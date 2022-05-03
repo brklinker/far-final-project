@@ -2,8 +2,18 @@
 
 @section('title', 'Home')
 
+@section('nav-bar')
+<a class="navbar-brand" href=" {{route('home.index') }}" id=" nav-bar-button">FA&R</a>
+
+@endsection
+
 
 @section('left-col')
+@if (session('success'))
+<div class="alert alert-success" role="alert">
+    {{ session('success') }}
+</div>
+@endif
 <h1>Welcome, {{$user->name}}</h1>
 <h5>Here is this week's Top 10 tracks.</h5>
 <table class=" table table-striped">
@@ -50,6 +60,12 @@
         <h1>Your Top 3</h1>
         <h5>Choose your Top 3 below.</h5>
     </div>
+
+    @if (session('selection'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('selection') }}
+    </div>
+    @endif
 
     <div class="row song-row">
         <label for="top-song">Top Song</label>

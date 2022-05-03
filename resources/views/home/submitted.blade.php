@@ -3,6 +3,18 @@
 @section('title', 'Submitted')
 
 @section("left-col")
+
+@section('nav-bar')
+<a class="navbar-brand" href=" {{route('home.submitted') }}" id=" nav-bar-button">FA&R</a>
+
+<a class="navbar-brand" href="{{route('favorite.show')}}" id="nav-bar-button">Favorite</a>
+@endsection
+
+@if (session('success'))
+<div class="alert alert-success" role="alert">
+    {{ session('success') }}
+</div>
+@endif
 <h1>Welcome back, {{$user->name}}</h1>
 <h5>Here are this week's Top 10 tracks.</h5>
 <table class=" table table-striped">
@@ -36,6 +48,15 @@
             <audio controls>
                 <source src=" {{$track->preview_url}}" type="audio/mp3">
             </audio>
+        </td>
+        <td>
+            <a href="{{ route('comment.show', [ 'id' => $track->id ]) }}">
+                Comment
+            </a>
+            <form action="{{ route('favorite.add', [ 'id' => $track->id ]) }}" method="POST">
+                @csrf
+                <input type="submit" value="Favorite" class="btn btn-primary" id="form-submit">
+            </form>
         </td>
     </tr>
     @endforeach

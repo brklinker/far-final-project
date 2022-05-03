@@ -77,10 +77,7 @@
 <body>
     <main>
         <nav class="navbar navbar-dark bg-primary">
-            <a class="navbar-brand" href="{{route('anr.index')}}" id="nav-bar-button">FA&R</a>
-
-            <a class="navbar-brand" href="{{route('history.index')}}">History</a>
-
+            @yield("nav-bar")
             <form action="{{route('auth.logout')}}" method="POST">
                 @csrf
                 <input type="submit" value="Logout" class="btn btn-primary" id="form-submit">
