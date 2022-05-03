@@ -32,7 +32,7 @@ class FavoriteController extends Controller
         $favorite->save();
 
         return redirect()
-            ->route('home.index')
+            ->route('home.submitted')
             ->with('success', "Successfully added to favorites");
     }
 
