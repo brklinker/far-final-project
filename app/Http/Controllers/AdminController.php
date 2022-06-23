@@ -86,15 +86,17 @@ class AdminController extends Controller
         });
 
         $keys = array_keys($songRank);
-
         for ($i = 0; $i < 10; $i++) {
             $topTracks[$i] = $keys[$i];
         }
 
-
         foreach ($topTracks as $track) {
             $spotifyTrack = Spotify::track($track)->get();
             $newTrack = new Track();
+
+            if ($spotifyTrack['preview_url'] == null) {
+                $spotifyTrack = Spotify::track($keys[50])->get();
+            }
             $newTrack->name = $spotifyTrack['name'];
             $newTrack->preview_url = $spotifyTrack['preview_url'];
             $newTrack->spotify_id = $spotifyTrack['id'];
