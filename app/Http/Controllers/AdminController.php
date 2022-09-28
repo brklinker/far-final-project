@@ -93,9 +93,10 @@ class AdminController extends Controller
         foreach ($topTracks as $track) {
             $spotifyTrack = Spotify::track($track)->get();
             $newTrack = new Track();
-
-            if ($spotifyTrack['preview_url'] == null) {
-                $spotifyTrack = Spotify::track($keys[30])->get();
+            $count = 11;
+            while ($spotifyTrack['preview_url'] == null) {
+                $spotifyTrack = Spotify::track($keys[$count])->get();
+                $count++;
             }
             $newTrack->name = $spotifyTrack['name'];
             $newTrack->preview_url = $spotifyTrack['preview_url'];
