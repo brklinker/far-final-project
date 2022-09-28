@@ -95,7 +95,7 @@ class AdminController extends Controller
             $newTrack = new Track();
 
             if ($spotifyTrack['preview_url'] == null) {
-                $spotifyTrack = Spotify::track($keys[50])->get();
+                $spotifyTrack = Spotify::track($keys[30])->get();
             }
             $newTrack->name = $spotifyTrack['name'];
             $newTrack->preview_url = $spotifyTrack['preview_url'];
