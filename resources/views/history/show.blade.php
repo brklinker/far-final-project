@@ -30,7 +30,7 @@
             <img src="{{$track->album_cover}}" alt="{{$track->album}}" class="cover-img">
         </td>
         <td>
-            {{$track->name}}
+            <a rel="noreferrer noopener" target="_blank" href="https://open.spotify.com/album/{{$track->album_id}}?highlight=spotify:track:{{$track->spotify_id}}"> {{$track->name}}</a>
         </td>
         <td>
             {{$track->artist}}
@@ -71,7 +71,7 @@
             <img src="{{$track->album_cover}}" alt="{{$track->album}}" class="cover-img">
         </td>
         <td>
-            {{$track->name}}
+            <a rel="noreferrer noopener" target="_blank" href="https://open.spotify.com/album/{{$track->album_id}}?highlight=spotify:track:{{$track->spotify_id}}"> {{$track->name}}</a>
         </td>
         <td>
             {{$track->artist}}
